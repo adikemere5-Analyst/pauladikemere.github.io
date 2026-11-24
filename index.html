@@ -1,174 +1,302 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paul Adikemere | AEO & GEO Strategist — AI Search Visibility</title>
-  <meta name="description" content="Paul Adikemere is an Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) Strategist helping businesses get cited as the #1 recommendation on ChatGPT, Perplexity, and Google AI Overviews." />
-
-  <!-- JSON-LD Person Schema for AI Search & Google Entity Recognition -->
+  <title>Paul Adikemere O. | GEO &amp; AEO Visibility Consultant</title>
+  <meta name="description" content="Helping high-ticket service businesses, dental practices, and construction firms get recommended by ChatGPT, Perplexity, Gemini, and Grok." />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Paul Adikemere",
-    "jobTitle": "AEO & GEO Strategist",
-    "description": "Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) Strategist helping businesses become the #1 recommended brand on ChatGPT, Perplexity, Gemini, and Google AI Overviews.",
-    "url": "https://github.io",
-    "sameAs": [
-      "https://www.linkedin.com/in/paul-adikemere-439041137/",
-      "https://youtube.com/@pauladikemere?si=m5MUKpz0fXpLeGdP"
-    ],
+    "@type": "ProfessionalService",
+    "name": "Paul Adikemere O. — GEO & AEO Visibility Consulting",
+    "founder": {
+      "@type": "Person",
+      "name": "Paul Adikemere Onyekachi"
+    },
+    "url": "https://pauladikemere.github.io/",
+    "email": "pauladikemere@gmail.com",
+    "description": "Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO) audits, structured FAQ & service copy, and entity schema implementation for local service businesses.",
+    "areaServed": "United States, United Kingdom, Canada, Global",
     "knowsAbout": [
       "Generative Engine Optimization (GEO)",
       "Answer Engine Optimization (AEO)",
-      "AI Search Visibility",
-      "Search Engine Optimization (SEO)",
-      "JSON-LD Schema Markup",
-      "Digital Media & Video Authority"
-    ],
-    "offers": {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "AI Search Visibility Audit & GEO/AEO Consulting",
-        "description": "Technical AI readiness, JSON-LD schema implementation, answer-first content restructuring, and brand citation optimization for ChatGPT, Perplexity, and Google AI."
-      }
-    }
+      "AI Search Visibility Audits",
+      "LocalBusiness & FAQPage Schema Markup"
+    ]
   }
   </script>
-
   <style>
+    :root {
+      --bg: #0b1120;
+      --surface: #111827;
+      --surface-alt: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --success: #34d399;
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #0f172a;
-      color: #f8fafc;
-      line-height: 1.65;
-      padding: 40px 20px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
+    .container { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      background: rgba(11, 17, 32, 0.9);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
+      z-index: 10;
     }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .brand { font-weight: 700; font-size: 1.15rem; letter-spacing: 0.3px; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 18px; align-items: center; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #0b1120;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn:hover { background: var(--accent-hover); color: #fff; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
+
+    .hero { padding: 76px 0 60px; text-align: center; }
     .badge {
       display: inline-block;
-      background: #1e293b;
-      color: #38bdf8;
-      border: 1px solid #334155;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
       padding: 6px 14px;
       border-radius: 999px;
       font-size: 0.85rem;
       font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.1rem);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 1.12rem;
+      max-width: 720px;
+      margin: 0 auto 32px;
+    }
+    .hero-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+    section { padding: 56px 0; border-top: 1px solid var(--border); }
+    h2 { font-size: 1.75rem; margin-bottom: 12px; font-weight: 700; }
+    .section-lead { color: var(--muted); margin-bottom: 32px; max-width: 720px; }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .card h3 { font-size: 1.15rem; margin-bottom: 10px; color: var(--accent); }
+    .card p { color: var(--muted); font-size: 0.96rem; }
+
+    .offer-box {
+      background: linear-gradient(145deg, var(--surface) 0%, var(--surface-alt) 100%);
+      border: 1px solid var(--accent);
+      border-radius: 14px;
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .offer-box { grid-template-columns: 1fr; }
+    }
+    .offer-price {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--success);
+      margin-bottom: 6px;
+    }
+    .offer-credit {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 600;
       margin-bottom: 16px;
     }
-    h1 {
-      font-size: 2.4rem;
-      line-height: 1.2;
-      margin-bottom: 12px;
-      color: #ffffff;
+    .checklist { list-style: none; margin-top: 14px; }
+    .checklist li {
+      padding: 6px 0;
+      color: var(--text);
+      font-size: 0.96rem;
     }
-    .tagline {
-      font-size: 1.15rem;
-      color: #94a3b8;
-      margin-bottom: 28px;
+    .checklist li::before {
+      content: "✓ ";
+      color: var(--success);
+      font-weight: 700;
+      margin-right: 6px;
     }
-    .cta-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 40px;
-    }
-    .btn-primary {
-      background: #0284c7;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 12px 22px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    .btn-primary:hover { background: #0369a1; }
-    .btn-secondary {
-      background: #1e293b;
-      color: #f8fafc;
-      border: 1px solid #334155;
-      text-decoration: none;
-      padding: 12px 22px;
-      border-radius: 8px;
-      font-weight: 600;
-    }
-    .btn-secondary:hover { background: #334155; }
-    .card {
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 12px;
-      padding: 28px;
-      margin-bottom: 24px;
-    }
-    h2 {
-      font-size: 1.35rem;
+
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
       margin-bottom: 14px;
-      color: #38bdf8;
     }
-    p { margin-bottom: 14px; color: #cbd5e1; }
-    ul { list-style: none; }
-    li {
-      margin-bottom: 14px;
-      padding-left: 20px;
-      position: relative;
-      color: #cbd5e1;
-    }
-    li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: #38bdf8;
-      font-weight: bold;
-    }
-    strong { color: #ffffff; }
+    .faq-item h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--text); }
+    .faq-item p { color: var(--muted); font-size: 0.95rem; }
+
     footer {
-      margin-top: 40px;
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
       text-align: center;
+      color: var(--muted);
       font-size: 0.9rem;
-      color: #64748b;
     }
-    footer a { color: #38bdf8; text-decoration: none; margin: 0 8px; }
+    footer a { color: var(--accent); text-decoration: none; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <span class="badge">AEO &amp; GEO Strategist</span>
-    <h1>Paul Adikemere</h1>
-    <p class="tagline">Turning your brand into the #1 recommendation on ChatGPT, Perplexity &amp; Google AI Overviews.</p>
-
-    <div class="cta-group">
-      <a href="https://www.linkedin.com/in/paul-adikemere-439041137/" target="_blank" class="btn-primary">Request a Free AI Visibility Audit</a>
-      <a href="mailto:[pauladikemere@gmail.com]?subject=AI%20Visibility%20Audit%20Request" class="btn-secondary">Email Me Directly</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">Paul Adikemere <span>O.</span></div>
+      <nav class="nav-links">
+        <a href="#how-it-works">How AI Search Works</a>
+        <a href="#audit-offer">Audit &amp; Roadmap</a>
+        <a href="#faq">FAQ</a>
+        <a href="audit.html">AI Audit Launcher</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="card">
-      <h2>About Paul Adikemere</h2>
-      <p><strong>Paul Adikemere</strong> is an Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) Strategist who helps businesses become the #1 recommended brand on ChatGPT, Perplexity, Gemini, and Google AI Overviews.</p>
-      <p>Combining technical AI readiness with a strong background in digital media, videography, and tech sustainability across Canada and Nigeria, Paul specializes in structuring brand entities, JSON-LD schema markup, answer-first content, and multimodal video authority. His work ensures high-intent buyers find, trust, and choose his clients directly inside AI-generated search answers before competitors capture the market.</p>
+  <main>
+    <section class="hero" style="border-top: none;">
+      <div class="container">
+        <div class="badge">GEO &amp; AEO Visibility Consulting</div>
+        <h1>Get Your Business Recommended by ChatGPT, Perplexity, Gemini &amp; Grok</h1>
+        <p>
+          High-intent buyers no longer just scroll ten blue links—they ask AI engines who to hire.
+          I help established dental clinics, general contractors, and local service leaders structure their web presence so AI platforms cite and recommend them first—with zero changes to your visual site design.
+        </p>
+        <div class="hero-actions">
+          <a href="mailto:pauladikemere@gmail.com?subject=AI%20Visibility%20Audit%20Inquiry" class="btn">Request Your 1-Page Sample</a>
+          <a href="audit.html" class="btn btn-outline">Open AI Visibility Launcher &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="container">
+        <h2>Why Top-Rated Local Businesses Get Skipped by AI</h2>
+        <p class="section-lead">
+          Even businesses with hundreds of five-star reviews and active state licenses get left out of AI recommendations when their facts are locked inside photo galleries or inconsistent across directories.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>1. Extractable Buyer Q&amp;A</h3>
+            <p>AI models pull direct, plain-text answers on pricing ranges, project timelines, insurance, and permitting—not vague marketing slogans.</p>
+          </div>
+          <div class="card">
+            <h3>2. Verified Entity &amp; Schema Signals</h3>
+            <p>Clean <code>LocalBusiness</code>, <code>Service</code>, and <code>FAQPage</code> structured data lets AI engines verify your credentials, licenses, and service areas with confidence.</p>
+          </div>
+          <div class="card">
+            <h3>3. Cross-Web Profile Alignment</h3>
+            <p>Consistent business addresses, hours, and service descriptions across Google, BBB, Yelp, and industry directories eliminate citation conflicts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="audit-offer">
+      <div class="container">
+        <div class="offer-box">
+          <div>
+            <h2>Full Multi-Prompt AI Visibility Audit &amp; Implementation Blueprint</h2>
+            <p style="color: var(--muted); margin-top: 8px;">
+              See exactly how buyers find (or miss) your company across the four major AI answer engines—and get the exact copy and schema fixes needed to win those recommendations.
+            </p>
+            <ul class="checklist">
+              <li>15 high-intent buyer prompts tested across ChatGPT, Perplexity, Gemini &amp; Grok</li>
+              <li>Competitor citation breakdown showing who AI recommends instead &amp; why</li>
+              <li>Custom AI-ready service summary &amp; FAQ copy written for your exact niche</li>
+              <li>Ready-to-deploy LocalBusiness &amp; FAQPage JSON-LD schema package</li>
+              <li>Directory &amp; NAP consistency checklist (48-hour turnaround)</li>
+            </ul>
+          </div>
+          <div class="card" style="text-align: center;">
+            <div class="offer-price">$200</div>
+            <div class="offer-credit">100% Credited Toward Full Implementation</div>
+            <p style="margin-bottom: 20px;">
+              Start with a complimentary 1-page sample showing how AI currently answers a live buyer search in your city.
+            </p>
+            <a href="mailto:pauladikemere@gmail.com?subject=Request%201-Page%20AI%20Visibility%20Sample" class="btn" style="width: 100%;">Email Paul to Get Started</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h3>What is Generative Engine Optimization (GEO) and Answer Engine Optimization (AEO)?</h3>
+          <p>GEO and AEO focus on structuring your website copy, FAQ blocks, schema markup, and business profiles so AI answer engines—such as ChatGPT, Perplexity, Google Gemini, and Grok—accurately extract, trust, and recommend your business when customers ask for local providers.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do we need to redesign our website?</h3>
+          <p>No. All service summaries, Q&amp;A blocks, and JSON-LD schema enhancements integrate cleanly into your existing pages without altering your visual branding or layout.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How quickly can we see results from an AI Visibility Audit?</h3>
+          <p>Your complete 15-prompt audit and implementation roadmap is delivered within 48 hours, and once structured copy and directory updates go live, web-connected AI engines typically index the updated signals within days to a few weeks.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Paul Adikemere O. — GEO &amp; AEO Visibility Consulting. Direct inquiries: <a href="mailto:pauladikemere@gmail.com">pauladikemere@gmail.com</a></p>
     </div>
-
-    <div class="card">
-      <h2>Core GEO &amp; AEO Services</h2>
-      <ul>
-        <li><strong>AI Visibility Audits:</strong> Comprehensive benchmarking of how your brand appears across ChatGPT, Perplexity, and Google AI Overviews compared to your top competitors.</li>
-        <li><strong>Technical AI Readiness &amp; Schema:</strong> Implementing JSON-LD structured data, entity linking, and AI crawler configurations (<code>robots.txt</code> &amp; <code>llms.txt</code>) so AI models accurately verify and cite your business.</li>
-        <li><strong>Answer-First Content &amp; Video Authority:</strong> Restructuring key web pages, FAQs, and YouTube video assets into high-trust, factual formats that Large Language Models quote in buyer recommendations.</li>
-      </ul>
-    </div>
-
-    <footer>
-      <p>
-        <a href="https://www.linkedin.com/in/paul-adikemere-439041137/" target="_blank">LinkedIn</a> •
-        <a href="https://youtube.com/@pauladikemere?si=m5MUKpz0fXpLeGdP" target="_blank">YouTube</a>
-      </p>
-      <p>&copy; 2026 Paul Adikemere. All rights reserved.</p>
-    </footer>
-  </div>
+  </footer>
 </body>
 </html>
