@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>1-Click AI Visibility Audit Launcher | Paul Adikemere O.</title>
+  <meta name="theme-color" content="#070d19" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1120' stroke='%2338bdf8' stroke-width='3'/%3E%3Cpath d='M25 40V24h8.5c3.5 0 5.5 2 5.5 5s-2 5-5.5 5H28v6h-3zm3-9h5c1.7 0 2.8-.8 2.8-2s-1.1-2-2.8-2h-5v4z' fill='%23f8fafc'/%3E%3Ccircle cx='46' cy='18' r='4' fill='%2334d399'/%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --bg: #070d19;
+      --surface: #0f172a;
+      --surface-2: #162033;
+      --border: rgba(148, 163, 184, 0.18);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --green: #34d399;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 16px;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    .wrap { max-width: 920px; margin: 0 auto; }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand-mini { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1rem; }
+    .topbar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    h1 { font-size: clamp(1.35rem, 5vw, 1.75rem); font-weight: 800; margin-bottom: 6px; }
+    .sub { color: var(--muted); font-size: 0.92rem; margin-bottom: 20px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    @media (min-width: 640px) { .card { padding: 24px; } body { padding: 24px; } }
+    .card h2 { font-size: 1.05rem; color: var(--accent); margin-bottom: 14px; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+    label { display: block; font-size: 0.82rem; color: var(--muted); margin-bottom: 5px; font-weight: 600; }
+    input, select, textarea {
+      width: 100%;
+      min-height: 46px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 16px; /* Prevents iOS/Android auto-zoom on focus */
+      font-family: inherit;
+    }
+    textarea { min-height: 96px; resize: vertical; }
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    @media (min-width: 640px) {
+      .btn-row { display: flex; flex-wrap: wrap; }
+    }
+    button {
+      min-height: 46px;
+      border: none;
+      border-radius: 10px;
+      padding: 11px 16px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--accent); color: #06101d; }
+    .btn-green { background: var(--green); color: #06101d; }
+    .btn-dark { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); }
+    .checks {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 10px 0 14px;
+    }
+    @media (min-width: 640px) { .checks { display: flex; flex-wrap: wrap; gap: 16px; } }
+    .checks label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+      font-size: 0.92rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .checks input { width: 18px; height: 18px; min-height: auto; }
+    .toast {
+      display: none;
+      background: rgba(52, 211, 153, 0.14);
+      border: 1px solid var(--green);
+      color: var(--green);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      margin-top: 12px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand-mini">
+        <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="60" height="60" rx="16" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+          <path d="M24 41V23H33C36.6 23 39 25.1 39 28.4C39 31.7 36.6 33.8 33 33.8H27.6V41H24ZM27.6 30.8H32.6C34.4 30.8 35.5 29.9 35.5 28.4C35.5 26.9 34.4 26 32.6 26H27.6V30.8Z" fill="#F8FAFC"/>
+          <circle cx="47" cy="17" r="4.5" fill="#34d399"/>
+        </svg>
+        <span>Paul Adikemere O.</span>
+      </div>
+      <a href="index.html">&larr; Consulting Home</a>
+    </div>
+
+    <h1>1-Click AI Visibility Audit Launcher</h1>
+    <p class="sub">Generate a high-intent customer prompt, test ChatGPT, Perplexity, Gemini, and Grok, and build a tailored outreach email right from your phone or laptop.</p>
+
+    <div class="card">
+      <h2>Step 1: Enter Prospect Details</h2>
+      <div class="grid">
+        <div>
+          <label for="bizName">Business Name</label>
+          <input id="bizName" type="text" value="5 Stars Home Remodeling Inc." />
+        </div>
+        <div>
+          <label for="contactName">Owner / Contact Name</label>
+          <input id="contactName" type="text" value="Levy" />
+        </div>
+        <div>
+          <label for="city">City / Neighborhood</label>
+          <input id="city" type="text" value="Woodland Hills, CA" />
+        </div>
+        <div>
+          <label for="niche">Industry Preset</label>
+          <select id="niche" onchange="buildPrompt()">
+            <option value="construction">Construction &amp; Remodeling</option>
+            <option value="dental">Cosmetic &amp; Family Dental</option>
+            <option value="hvac">HVAC / Plumbing / Home Services</option>
+            <option value="legal">Law Firm / Attorney</option>
+          </select>
+        </div>
+      </div>
+      <label for="promptBox">Generated Customer Buyer Prompt</label>
+      <textarea id="promptBox"></textarea>
+      <div class="btn-row">
+        <button class="btn-primary" onclick="copyPrompt()">Copy Prompt</button>
+        <button class="btn-green" onclick="launchAll()">Copy &amp; Open All 4 AI Engines</button>
+        <button class="btn-dark" onclick="openEngine('https://chatgpt.com/')">ChatGPT</button>
+        <button class="btn-dark" onclick="openEngine('https://www.perplexity.ai/')">Perplexity</button>
+        <button class="btn-dark" onclick="openEngine('https://gemini.google.com/app')">Gemini</button>
+        <button class="btn-dark" onclick="openEngine('https://grok.com/')">Grok</button>
+      </div>
+      <div id="promptToast" class="toast">Prompt copied! Paste into your AI search tab.</div>
+    </div>
+
+    <div class="card">
+      <h2>Step 2: Log Findings &amp; Build Email</h2>
+      <label>Which AI Engines Skipped This Business?</label>
+      <div class="checks">
+        <label><input type="checkbox" class="skip-ai" value="ChatGPT" checked onchange="buildEmail()"> ChatGPT</label>
+        <label><input type="checkbox" class="skip-ai" value="Perplexity" checked onchange="buildEmail()"> Perplexity</label>
+        <label><input type="checkbox" class="skip-ai" value="Gemini" checked onchange="buildEmail()"> Gemini</label>
+        <label><input type="checkbox" class="skip-ai" value="Grok" checked onchange="buildEmail()"> Grok</label>
+      </div>
+      <div class="grid">
+        <div>
+          <label for="reputation">Strongest Trust Proof (Reviews / License / BBB)</label>
+          <input id="reputation" type="text" value="an A+ BBB rating and active state license" oninput="buildEmail()" />
+        </div>
+        <div>
+          <label for="competitors">Competitors Recommended Instead (Optional)</label>
+          <input id="competitors" type="text" placeholder="e.g., other local providers" oninput="buildEmail()" />
+        </div>
+      </div>
+      <label for="emailBox">Ready-to-Send Outreach Email</label>
+      <textarea id="emailBox" style="min-height: 220px;"></textarea>
+      <div class="btn-row">
+        <button class="btn-green" onclick="copyEmail()">Copy Outreach Email</button>
+      </div>
+      <div id="emailToast" class="toast">Outreach email copied to clipboard!</div>
+    </div>
+  </div>
+
+  <script>
+    function buildPrompt() {
+      const city = document.getElementById('city').value.trim() || 'Los Angeles, CA';
+      const niche = document.getElementById('niche').value;
+      const templates = {
+        construction: `I'm looking for a licensed general contractor in ${city} for a kitchen remodel or ADU build—who do you recommend, what are typical project timelines and cost ranges, and how do permits work?`,
+        dental: `I'm looking for a top-rated cosmetic and family dentist in ${city} for dental implants, veneers, or routine care—who do you recommend, what are typical costs, and do they accept PPO insurance?`,
+        hvac: `I'm looking for a licensed, reliable HVAC and plumbing contractor in ${city} for AC installation or emergency repair—who do you recommend, what are typical pricing ranges, and do they offer same-day service?`,
+        legal: `I'm looking for an experienced personal injury or business attorney in ${city}—who are the most reputable local firms, how do consultations and fees work, and what should I look for?`
+      };
+      document.getElementById('promptBox').value = templates[niche];
+      buildEmail();
+    }
+
+    function showToast(id) {
+      const el = document.getElementById(id);
+      el.style.display = 'block';
+      setTimeout(() => { el.style.display = 'none'; }, 3500);
+    }
+
+    function copyPrompt() {
+      navigator.clipboard.writeText(document.getElementById('promptBox').value);
+      showToast('promptToast');
+    }
+
+    function openEngine(url) {
+      copyPrompt();
+      window.open(url, '_blank');
+    }
+
+    function launchAll() {
+      copyPrompt();
+      ['https://chatgpt.com/', 'https://www.perplexity.ai/', 'https://gemini.google.com/app', 'https://grok.com/'].forEach(u => window.open(u, '_blank'));
+    }
+
+    function buildEmail() {
+      const biz = document.getElementById('bizName').value.trim() || 'your business';
+      const contact = document.getElementById('contactName').value.trim() || 'Team';
+      const city = document.getElementById('city').value.trim() || 'your area';
+      const rep = document.getElementById('reputation').value.trim() || 'strong local reviews and credentials';
+      const comp = document.getElementById('competitors').value.trim();
+      const skipped = Array.from(document.querySelectorAll('.skip-ai:checked')).map(c => c.value);
+
+      let skippedPhrase = 'major AI search engines completely skipped ' + biz;
+      if (skipped.length === 1) skippedPhrase = `${skipped[0]} completely skipped ${biz}`;
+      else if (skipped.length === 2) skippedPhrase = `${skipped[0]} and ${skipped[1]} both skipped ${biz}`;
+      else if (skipped.length > 2) skippedPhrase = `${skipped.slice(0, -1).join(', ')}, and ${skipped[skipped.length - 1]} all completely skipped ${biz}`;
+
+      const compText = comp ? `, recommending ${comp} instead` : ', recommending other local competitors instead';
+
+      document.getElementById('emailBox').value =
+`Subject: Quick note: How AI search answers ${city} buyer searches
+
+Hi ${contact} & the ${biz} team,
+
+You have built a strong reputation in ${city}—with ${rep}.
+
+However, when I just tested how major AI search engines answer local customers looking for a trusted provider in ${city}—including pricing, timelines, and key service details—${skippedPhrase}${compText}.
+
+AI search tools don't browse websites the same way human visitors do; they extract recommendations from structured Q&A blocks, clear service summaries, and consistent business profile data across the web. When those signals aren't structured cleanly for AI engines, even top-rated local businesses get left out of high-intent searches.
+
+I help established businesses structure their service pages, FAQs, and online profiles so ChatGPT, Perplexity, Gemini, and Grok accurately recognize and recommend them—with zero changes to your current website design.
+
+Would you be open to me sending over a quick 1-page sample showing how a structured Q&A and service summary block could look for ${biz}?
+
+Best,
+Paul Adikemere O.
+AEO & GEO Visibility Consultant
+https://adikemere5-analyst.github.io/pauladikemere.github.io/`;
+    }
+
+    function copyEmail() {
+      navigator.clipboard.writeText(document.getElementById('emailBox').value);
+      showToast('emailToast');
+    }
+
+    document.getElementById('bizName').addEventListener('input', buildEmail);
+    document.getElementById('contactName').addEventListener('input', buildEmail);
+    document.getElementById('city').addEventListener('input', buildPrompt);
+    buildPrompt();
+  </script>
+</body>
+</html>
